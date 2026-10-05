@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "plugin.py"
+version = "0.1.0"
+description = "A Bukkit-style API for writing Minecraft plugins in Python, for Java and Bedrock servers"
+authors = [{ name = "cqlsh" }]
+license = "MIT"
+requires-python = ">=3.14"
+dependencies = []
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Games/Entertainment",
+    "Typing :: Typed"
+]
+
+[dependency-groups]
+dev = ["pyright", "pytest"]
+
+[tool.setuptools.packages.find]
+include = ["minecraft*"]
+
+[tool.setuptools.package-data]
+"*" = ["py.typed", "*.pyi"]
+
+[tool.pyright]
+include = ["minecraft", "tests"]
+pythonVersion = "3.14"
+typeCheckingMode = "strict"
+
+[tool.pytest]
+minversion = "9.0"
+testpaths = ["tests"]
