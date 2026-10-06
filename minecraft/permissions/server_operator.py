@@ -22,9 +22,11 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 """
 
-from abc import ABC, abstractmethod
+from abc import abstractmethod
 
-class ServerOperator(ABC):
+from ..util.interface import Interface
+
+class ServerOperator(Interface):
     """
     Something that can be a server operator, such as a player or the console.
     """

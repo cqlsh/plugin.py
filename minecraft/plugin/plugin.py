@@ -22,11 +22,13 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 """
 
-from abc import ABC, abstractmethod
+from abc import abstractmethod
 from logging import Logger
 from pathlib import Path
 
-class Plugin(ABC):
+from ..util.interface import Interface
+
+class Plugin(Interface):
     """
     A plugin loaded by the server.
 
