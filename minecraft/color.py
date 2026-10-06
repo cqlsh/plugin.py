@@ -22,11 +22,14 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 """
 
-from typing import ClassVar, Final, Self, overload
+from typing import TYPE_CHECKING, ClassVar, Final, Self, overload
 from collections.abc import Mapping
 from struct import Struct
 
 from .configuration.serialization.configuration_serializable import ConfigurationSerializable
+
+if TYPE_CHECKING:
+    from .dye_color import DyeColor
 
 FLOAT: Final = Struct("<f")
 
@@ -402,6 +405,13 @@ class Color(ConfigurationSerializable):
         blue = int(Color._float32(value=average_blue * gain))
 
         return Color._create(red << 16 | green << 8 | blue, 255)
+
+    def mix_dyes(self, *dyes: DyeColor) -> Color:
+        """
+        Mixes this color with the colors of ``dyes``, like dyeing leather armor of this color
+        with those dyes in a crafting grid.
+        """
+        return self.mix_colors(*[dye.color for dye in dyes])
 
     @classmethod
     def _float32(cls, value: float) -> float:
