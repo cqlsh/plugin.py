@@ -31,7 +31,7 @@ class Cancellable:
     own slots, since this class keeps no storage to stay compatible with any event layout.
     """
 
-    __slots__ = []
+    __slots__ = ()
 
     cancelled: bool = False
     """

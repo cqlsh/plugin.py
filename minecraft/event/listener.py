@@ -31,6 +31,6 @@ class Listener:
     itself and register its own handlers when it gets enabled.
     """
 
-    __slots__ = []
+    __slots__ = ()
 
 __all__ = ["Listener"]

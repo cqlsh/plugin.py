@@ -34,7 +34,7 @@ class Event:
     :attr:`asynchronous` when they can fire off the main thread.
     """
 
-    __slots__ = []
+    __slots__ = ()
 
     asynchronous: bool = False
     """
